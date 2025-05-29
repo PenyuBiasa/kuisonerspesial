@@ -1,4 +1,4 @@
-// Data pertanyaan
+
 const questions = [
     {
         question: "Apa makanan yang paling lu suka?",
@@ -124,7 +124,7 @@ const nextQuestion = () => {
   if (currentQuestionIndex < questions.length) {
     showQuestion();
   } else {
-    showSummaryScreen(); // Tampilkan summary dulu
+    showSummaryScreen(); 
   }
 };
 
@@ -153,7 +153,7 @@ const showFinalScreen = () => {
 
 // Rayakan jika jawab "IYA"
 const celebrate = () => {
-    // Mainkan sound effect
+    
     const sfx = document.getElementById('celebration-sfx');
     sfx.currentTime = 0;
     sfx.play().catch(e => console.log("Autoplay prevented:", e));
