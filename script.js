@@ -11,8 +11,8 @@ const questions = [
         hasCustom: true
     },
     {
-        question: "Hobi lu ngapain?",
-        options: ["Membaca", "Olahraga", "Memasak", "Traveling", "Nonton Film", "Yang Lain"],
+        question: "Apa hobi lu?",
+        options: ["Membaca", "Olahraga", "Memasak", "Dengerin Musik", "Nonton Film", "Yang Lain"],
         hasCustom: true
     },
     {
@@ -37,11 +37,15 @@ const initElements = () => {
     sfx.currentTime = 0;
     sfx.play().catch(e => console.log("Autoplay prevented:", e));
     sfx.volume = 0.7;
-        alert("Gua akan terus berusaha sampai lu bilang MAU!😝");
+        alert("Engga bisa nolak wleeeew😝");
     });
     
     document.getElementById('save-next-btn').addEventListener('click', handleSaveAndNext);
     document.getElementById('custom-input').addEventListener('input', handleCustomInput);
+    document.getElementById('next-to-final').addEventListener('click', () => {
+  document.getElementById('summary-screen').classList.remove('active');
+  document.getElementById('final-screen').classList.add('active');
+});
 };
 
 const handleCustomInput = (e) => {
@@ -116,28 +120,35 @@ const nextQuestion = () => {
     sfx.play().catch(e => console.log("Autoplay prevented:", e));
     sfx.volume = 0.4;
     currentQuestionIndex++;
-    
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showFinalScreen();
-    }
+
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showSummaryScreen(); // Tampilkan summary dulu
+  }
 };
 
-// Tampilkan layar akhir
-const showFinalScreen = () => {
-    document.getElementById('question-screen').classList.remove('active');
-    document.getElementById('final-screen').classList.add('active');
-    
-    const summary = document.getElementById('answers-summary');
-    summary.innerHTML = `
-        <p><strong>Makanan favorit:</strong> ${answers.q1 || '-'}</p>
+const showSummaryScreen = () => {
+  // Isi jawaban
+  document.getElementById('answers-summary').innerHTML = `
+    <p><strong>Makanan favorit:</strong> ${answers.q1 || '-'}</p>
         <p><strong>Warna favorit:</strong> ${answers.q2 || '-'}</p>
         <p><strong>Hobi:</strong> ${answers.q3 || '-'}</p>
         <p><strong>Hewan kesukaan:</strong> ${answers.q4 || '-'}</p>
     `;
     
     document.getElementById('progress-bar').style.width = '100%';
+  
+  // Navigasi screen
+  document.getElementById('question-screen').classList.remove('active');
+  document.getElementById('summary-screen').classList.add('active');
+};
+
+
+// Tampilkan layar akhir
+const showFinalScreen = () => {
+    document.getElementById('question-screen').classList.remove('active');
+    document.getElementById('final-screen').classList.add('active');
 };
 
 // Rayakan jika jawab "IYA"
