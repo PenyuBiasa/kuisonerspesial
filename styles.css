@@ -1,4 +1,3 @@
-/* Font & Colors */
 :root {
     --primary: #e63946;
     --secondary: #f1faee;
@@ -17,7 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    line-height: 1.6;   
+    line-height: 1.6;
 }
 
 .container {
@@ -38,18 +37,6 @@ body {
     display: block;
 }
 
-.option {
-    color: black;            
-    background-color: white;    
-    transition: 0.3s;
-  }
-  
-  .option:hover {
-    color: white;              
-    background-color: #ff4d6d;  
-  }
-  
-
 h1, h2 {
     font-family: 'Quicksand', sans-serif;
     color: var(--primary);
@@ -64,15 +51,6 @@ h2 {
     font-size: 1.8rem;
 }
 
-.romantic-text {
-    display: none;
-    font-family: 'Satisfy', cursive;
-    font-size: 1.8rem;
-    color: var(--primary);
-    animation: fadeIn 1s ease forwards;
-}
-
-/* Progress Bar */
 .progress-container {
     width: 100%;
     height: 8px;
@@ -89,7 +67,6 @@ h2 {
     transition: width 0.5s ease;
 }
 
-/* Options Styling */
 #options-container {
     margin-bottom: 1.5rem;
 }
@@ -115,14 +92,20 @@ h2 {
 
 .option.selected {
     background-color: var(--primary);
-    color: rgb(255, 255, 255);
+    color: white;
     border-color: var(--primary);
 }
 
-/* Custom Input */
 #custom-input-container {
     margin-top: 1rem;
-    animation: fadeIn 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#custom-input-container:not(.hidden) {
+    max-height: 100px;
+    margin-bottom: 1rem;
 }
 
 #custom-input {
@@ -131,10 +114,8 @@ h2 {
     border: 2px solid var(--accent);
     border-radius: 8px;
     font-size: 1rem;
-    margin-bottom: 10px;
 }
 
-/* Buttons */
 button {
     background-color: var(--primary);
     color: white;
@@ -159,35 +140,14 @@ button:disabled {
     transform: none;
 }
 
-#next-btn {
-    margin-top: 20px;
-}
-
 #save-next-btn {
     margin-top: 20px;
     width: 100%;
-    background-color: var(--primary);
-    color: white;
     padding: 12px;
     font-size: 1rem;
     font-weight: 600;
 }
 
-#save-next-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-#custom-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 2px solid var(--accent);
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-/* Final Screen */
 #answers-summary {
     background-color: var(--light);
     padding: 1.5rem;
@@ -203,9 +163,27 @@ button:disabled {
     margin-top: 1.5rem;
 }
 
-/* Celebration */
 #celebration {
     margin-top: 2rem;
+}
+
+.romantic-text {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.8rem;
+    color: var(--primary);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.romantic-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sembunyikan audio element */
+audio {
+    display: none;
 }
 
 .hearts-animation {
@@ -217,45 +195,18 @@ button:disabled {
     pointer-events: none;
     overflow: hidden;
     z-index: 99;
-  }
-  
-
-/* Animations */
-
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float {
-    0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-20px) rotate(10deg);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(-40px) rotate(-10deg);
-      opacity: 0;
-    }
-  }
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-150vh); opacity: 0; }
+}
 
-  @keyframes floatUp {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-150vh); /* naik jauh ke atas */
-      opacity: 0;
-    }
-  }
-  
-
-/* Responsive */
 @media (max-width: 480px) {
     .screen {
         padding: 1.5rem;

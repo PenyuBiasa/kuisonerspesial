@@ -13,8 +13,8 @@
         <!-- Intro Screen -->
         <div id="intro-screen" class="screen active">
             <h1>Hai, <span id="target-name"></span>!</h1>
-            <p>Aku ingin mengenal kamu lebih baik...</p>
-            <button id="start-btn">Mulai Kuis</button>
+            <p>Aku ingin mengenal kamu lebih baik. jadi kalau kamu ga keberatan, tolong jawab beberapa pertanyaan ini...</p>
+            <button id="start-btn">Mulai</button>
         </div>
 
         <!-- Question Screen -->
@@ -25,7 +25,7 @@
             <h2 id="current-question">Pertanyaan</h2>
             <div id="options-container"></div>
             <div id="custom-input-container" class="hidden">
-                <input type="text" id="custom-input" placeholder="Tulis jawabanmu di sini...">
+                <input type="text" id="custom-input" placeholder="Tulis jawabanmu disini..." autocomplete="off">
             </div>
             <button id="save-next-btn" disabled>Lanjut</button>
         </div>
@@ -40,12 +40,17 @@
                 <button id="no-btn">Enggak Mau WLee😋</button>
             </div>
             <div id="celebration" class="hidden">
-                <h3 class="romantic-text">Yeay! ❤️ Aku janji akan ngebuat kamu bahagia!</h3>
-                <div class="hearts-animation"></div>
-            </div>
+    <div class="hearts-animation"></div>
+    <h3 class="romantic-text">Yeay! ❤️ Aku janji akan membuat kamu bahagia!</h3>
+</div>
         </div>
     </div>
 
+
+
     <script src="script.js"></script>
+    <audio id="celebration-sfx" src="yeyy.mp3" preload="auto"></audio>
+    <audio id="click-sfx" src="click.wav" preload="auto"></audio>
+    <audio id="negative-sfx" src="negatif.wav" preload="auto"></audio>
 </body>
 </html>
