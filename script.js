@@ -1,23 +1,23 @@
 // Data pertanyaan
 const questions = [
     {
-        question: "Apa makanan favoritmu?",
-        options: ["Sushi", "Pasta", "Nasi Goreng", "Steak", "Es Krim", "Yang Lain"],
+        question: "Apa makanan yang paling lu suka?",
+        options: ["Mie", "Seblak", "Nasi Goreng", "Telur", "Ice Cream", "Yang Lain"],
         hasCustom: true
     },
     {
-        question: "Apa warna favoritmu?",
-        options: ["Merah", "Biru", "Hijau", "Pink", "Hitam", "Putih", "Yang Lain"],
+        question: "Apa warna favorit lu?",
+        options: ["Merah", "Biru", "Hijau", "Kuning", "Hitam", "Putih", "Yang Lain"],
         hasCustom: true
     },
     {
-        question: "Apa hobimu?",
+        question: "Hobi lu ngapain?",
         options: ["Membaca", "Olahraga", "Memasak", "Traveling", "Nonton Film", "Yang Lain"],
         hasCustom: true
     },
     {
-        question: "Apa hewan peliharaan favoritmu?",
-        options: ["Kucing", "Anjing", "Kelinci", "Burung", "Hamster", "Gak Suka Hewan"],
+        question: "Hewan apa yang paling lu suka?",
+        options: ["Kucing", "Kelinci", "Hamster", "Burung", "Ayam", "Gak Suka Hewan"],
         hasCustom: false
     }
 ];
@@ -37,7 +37,7 @@ const initElements = () => {
     sfx.currentTime = 0;
     sfx.play().catch(e => console.log("Autoplay prevented:", e));
     sfx.volume = 0.7;
-        alert("Aku akan terus berusaha sampai kamu bilang MAU!");
+        alert("Gua akan terus berusaha sampai lu bilang MAU!😝");
     });
     
     document.getElementById('save-next-btn').addEventListener('click', handleSaveAndNext);
@@ -131,10 +131,10 @@ const showFinalScreen = () => {
     
     const summary = document.getElementById('answers-summary');
     summary.innerHTML = `
-        <p><strong>Makanan favoritmu:</strong> ${answers.q1 || '-'}</p>
-        <p><strong>Warna favoritmu:</strong> ${answers.q2 || '-'}</p>
-        <p><strong>Hobimu:</strong> ${answers.q3 || '-'}</p>
-        <p><strong>Hewan peliharaan favorit:</strong> ${answers.q4 || '-'}</p>
+        <p><strong>Makanan favorit:</strong> ${answers.q1 || '-'}</p>
+        <p><strong>Warna favorit:</strong> ${answers.q2 || '-'}</p>
+        <p><strong>Hobi:</strong> ${answers.q3 || '-'}</p>
+        <p><strong>Hewan kesukaan:</strong> ${answers.q4 || '-'}</p>
     `;
     
     document.getElementById('progress-bar').style.width = '100%';

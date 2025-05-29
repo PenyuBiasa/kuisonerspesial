@@ -48,7 +48,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 
 .progress-container {
@@ -83,10 +83,12 @@ h2 {
     transition: all 0.3s ease;
     font-size: 1rem;
     text-align: left;
+    color: rgb(45, 175, 255);
 }
 
 .option:hover {
     background-color: var(--accent);
+    color: white;
     border-color: var(--primary);
 }
 
